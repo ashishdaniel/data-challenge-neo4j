@@ -35,7 +35,7 @@ public class GraphDataLoader {
 	 */
 	public void loadData(List<Relation> relations) {
 		try (Transaction tx = graphDB.beginTx()) {
-			graphDB.schema().indexFor(Constants.PERSON).on("name").create();
+			graphDB.schema().indexFor(PERSON).on(NAME).create();
 			tx.success();
 		}
 		Transaction tx = graphDB.beginTx();

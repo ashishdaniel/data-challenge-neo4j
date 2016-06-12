@@ -52,12 +52,8 @@ public class GraphDataExtractor {
 	 * @return
 	 */
 	public List<List<String>> extractResult(int degree) {
-		if (degree < 0) {
-			throw new IllegalArgumentException("Please provided a positive integer as degree");
-		}
 
-		Result result = graphDB.execute(String.format(query, degree));
-		return result.stream().map(extractResultFn).collect(Collectors.toList());
+		return extractResultStream(degree).collect(Collectors.toList());
 	}
 	
 	/**
