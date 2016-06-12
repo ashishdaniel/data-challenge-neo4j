@@ -3,8 +3,8 @@ package com.soundcloud.neo4j;
 import static com.soundcloud.util.Constants.CONNECTIONS;
 import static com.soundcloud.util.Constants.NAME;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -39,7 +39,7 @@ public class GraphDataExtractor {
 	 */
 	@SuppressWarnings("unchecked")
 	private Function<Map<String, Object>, List<String>> extractResultFn = (resultMap) -> {
-		List<String> list = new ArrayList<>((List<String>) resultMap.get(CONNECTIONS));
+		List<String> list = new LinkedList<>((List<String>) resultMap.get(CONNECTIONS));
 		Collections.sort(list);
 		list.add(0, (String) resultMap.get(NAME));
 		return list;
